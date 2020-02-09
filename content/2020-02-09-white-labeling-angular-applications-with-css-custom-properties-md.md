@@ -96,7 +96,7 @@ Once you set the css variable to some value, your view should immediately reflec
 - If you do make use of SASS color functions to obtain darker or lighter variant of your main colors, you may generate those from javascript at the time you load your theme.
   - I am using a small library called [tinycolor](https://github.com/bgrins/TinyColor) in my example which is very simple to use. 
   - The idea is to generate a range of light and dark colors for each of our base palette colors that are defined in our theme. 
-    - For example, if we have a variable called `--primaryColor`, then we will also have: `--primaryColorDark10, --primaryColorDark20, ..., --primaryColorDark90, --primaryColorLight10, ..., --primaryColorLight90`, and so on. 
+    - For example, if we have a variable called `--primaryColor`, then we will also have: `--primaryColorDark10`, `--primaryColorDark20`, ..., `--primaryColorDark90`, `--primaryColorLight10`, ..., `--primaryColorLight90`, and so on. 
 
 
 ## Our theme model 
