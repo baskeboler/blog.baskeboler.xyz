@@ -34,7 +34,7 @@ A very common task in web development is doing white labeling. Usually you start
 </div>
 ```
 
-Your theme sass file may look something like **this**: 
+Your theme sass file may look something like this: 
 
 ```scss
 // .. some imports  
@@ -63,7 +63,7 @@ Needless to say, this will not scale if we plan to support tens or hundreds of t
 
 # Difference between css and sass variables
 
-Sass variables get resolved at compile time, once your styles are compiled into CSS, they are replaced with actual values which you can no longer change at runtime. 
+Sass variables (and other preprocessor variables as well) get resolved at compile time, once your styles are compiled into CSS, they are replaced with actual values which you can no longer change at runtime. 
 
 On the other hand, CSS variables can be changed at runtime after your page is loaded.  You could set a variable to a certain value as in the following snippet:
 
@@ -117,6 +117,8 @@ export interface Theme {
 ```
 
 # Fetching theme details from the backend
+
+Fetch the theme objects from an endpoint like you would fetch any other domain object with an angular service.
 
 # Implementing the Angular service that applies the themes.
 
@@ -188,6 +190,8 @@ And here is the `applyTheme()` method:
 
 # Subscribing to the current theme observable to listen for changes
 
+In the ThemesService, provide a method that returns an Observable<Theme> so components can subscribe and listen for theme changes.
+
 ```ts
 this.themes.getCurrentTheme().subscribe((t: Theme) => {
   // theme has changed, do something to your views
@@ -198,7 +202,7 @@ this.themes.getCurrentTheme().subscribe((t: Theme) => {
 
 In our example we are setting all the custom properties in `document.documentElement.style`, this is global scope and will affect all components, we might want to apply themes just to the scope of a single component and implementing a directive for this seems like the natural way to get this done. 
 
-# APP_INITIALIZER
+# Initialize your theme on application startup
 
 Here is a trick we can use to load our theme at application startup to avoid a theme switch when the views are already being displayed.
 
