@@ -10,26 +10,22 @@ tags:
   - theming
   - white labeling
 ---
-
-- [Introduction](#introduction)
-- [Difference between css and sass variables](#difference-between-css-and-sass-variables)
-- [Time to refactor](#time-to-refactor)
-  - [Our theme model](#our-theme-model)
-- [Fetching theme details from the backend](#fetching-theme-details-from-the-backend)
-- [Implementing the Angular service that applies the themes.](#implementing-the-angular-service-that-applies-the-themes)
-  - [Apply theme](#apply-theme)
-  - [Scaffold light, dark and other variants](#scaffold-light-dark-and-other-variants)
-- [Subscribing to the current theme observable to listen for changes](#subscribing-to-the-current-theme-observable-to-listen-for-changes)
-- [Theme directive](#theme-directive)
-- [APP_INITIALIZER](#appinitializer)
-- [References](#references)
-
+* [Introduction](#introduction)
+* [Difference between css and sass variables](#difference-between-css-and-sass-variables)
+* [Time to refactor](#time-to-refactor)
+  * [Our theme model](#our-theme-model)
+* [Fetching theme details from the backend](#fetching-theme-details-from-the-backend)
+* [Implementing the Angular service that applies the themes.](#implementing-the-angular-service-that-applies-the-themes)
+  * [Apply theme](#apply-theme)
+  * [Scaffold light, dark and other variants](#scaffold-light-dark-and-other-variants)
+* [Subscribing to the current theme observable to listen for changes](#subscribing-to-the-current-theme-observable-to-listen-for-changes)
+* [Theme directive](#theme-directive)
+* [APP_INITIALIZER](#appinitializer)
+* [References](#references)
 
 # Introduction
 
 A very common task in web development is doing white labeling. Usually you start off adding a theme or two to your application, you set some wrapper class name in a container element and you add a block of sass in your styles and customize under that class.
-
-
 
 ```html
 <div class="container my-theme">
@@ -38,7 +34,7 @@ A very common task in web development is doing white labeling. Usually you start
 </div>
 ```
 
-Your theme sass file may look something like __this__: 
+Your theme sass file may look something like **this**: 
 
 ```scss
 // .. some imports  
@@ -56,7 +52,6 @@ Your theme sass file may look something like __this__:
     display: none;
   }
 }
-
 ```
 
 If you planned from the start to support white labeling then you probably wrote all the 
@@ -64,7 +59,7 @@ style rules using the relevant sass variables that you will later override.
 
 After implementing more than 2 or 3 themes you will start noticing that this can get really messy. You will also notice that your css will have a lot of redundant code and the more themes you have, the more css code you will bundle with your application. Also, you will be loading all the themes css even though you will only use 1 theme.
 
-Needless to say, this will not scale if we plan to support 
+Needless to say, this will not scale if we plan to support tens or hundreds of themes.
 
 # Difference between css and sass variables
 
@@ -72,40 +67,42 @@ Sass variables get resolved at compile time, once your styles are compiled into 
 
 On the other hand, CSS variables can be changed at runtime after your page is loaded.  You could set a variable to a certain value as in the following snippet:
 
-``` typescript 
+```typescript
 document.documentElement.style.setProperty('--myCssVariable', '#9efefe');
 ```
+
 And your styles should reference the variable in some rules:
 
-```scss 
+```scss
 .some-class {
   color: var(--myCssVariable);
 }
 ```
+
 Once you set the css variable to some value, your view should immediately reflect the update. 
 
 # Time to refactor
 
-- Remove all theme wrapper css code blocks. 
-- Replace all preprocessor variables with css vars in the form `var(--myVarName)`
-  - Sometimes you can do something like this:
-    ```scss 
+* Remove all theme wrapper css code blocks. 
+* Replace all preprocessor variables with css vars in the form `var(--myVarName)`
+  * Sometimes you can do something like this:
+    ```scss
     $mySassVariable: var(--myCssVariable);
     ```
     This will not work if that SASS variable is later used with SASS functions (for example the `mix()` color function), but if you aren't passing that var through functions that expect a resolved value you should be ok. 
-- If you do make use of SASS color functions to obtain darker or lighter variant of your main colors, you may generate those from javascript at the time you load your theme.
-  - I am using a small library called [tinycolor](https://github.com/bgrins/TinyColor) in my example which is very simple to use. 
-  - The idea is to generate a range of light and dark colors for each of our base palette colors that are defined in our theme. 
-    - For example, if we have a variable called `--primaryColor`, then we will also have: `--primaryColorDark10`, `--primaryColorDark20`, ..., `--primaryColorDark90`, `--primaryColorLight10`, ..., `--primaryColorLight90`, and so on. 
+* If you do make use of SASS color functions to obtain darker or lighter variant of your main colors, you may generate those from javascript at the time you load your theme.
+  * I am using a small library called [tinycolor](https://github.com/bgrins/TinyColor) in my example which is very simple to use. 
+  * The idea is to generate a range of light and dark colors for each of our base palette colors that are defined in our theme. 
+    * For example, if we have a variable called `--primaryColor`, then we will also have: `--primaryColorDark10`, `--primaryColorDark20`, ..., `--primaryColorDark90`, `--primaryColorLight10`, ..., `--primaryColorLight90`, and so on. 
 
-
-## Our theme model 
+## Our theme model
 
 There are some things to note about themes, as part of our themes we will customize:
-- CSS styles:
-  - mostly made up of our styles referring to CSS vars that we will include in some entity. 
-- Content
-  - Things we can't customize with CSS, for example: titles, custom footers, hiding/showing elements based on the theme, etc.
+
+* CSS styles:
+  * mostly made up of our styles referring to CSS vars that we will include in some entity. 
+* Content
+  * Things we can't customize with CSS, for example: titles, custom footers, hiding/showing elements based on the theme, etc.
 
 Here is an example theme model for demo application:
 
@@ -118,6 +115,7 @@ export interface Theme {
   cssRules: { [key: string]: string };
 }
 ```
+
 # Fetching theme details from the backend
 
 # Implementing the Angular service that applies the themes.
@@ -128,7 +126,7 @@ Applying the theme is pretty straight forward, we push it into our theme subject
 
 The following snippet registers a var:
 
-``` typescript
+```typescript
 private registerCssVar(name: string, value: string): void {
     document.documentElement.style.setProperty(name, value);
 }
@@ -136,7 +134,7 @@ private registerCssVar(name: string, value: string): void {
 
 ## Scaffold light, dark and other variants
 
-``` typescript
+```typescript
   
   /**
    * Generates a range of darker, ligher and desaturated 
@@ -196,7 +194,7 @@ this.themes.getCurrentTheme().subscribe((t: Theme) => {
 });
 ```
 
-# Theme directive 
+# Theme directive
 
 In our example we are setting all the custom properties in `document.documentElement.style`, this is global scope and will affect all components, we might want to apply themes just to the scope of a single component and implementing a directive for this seems like the natural way to get this done. 
 
@@ -206,8 +204,7 @@ Here is a trick we can use to load our theme at application startup to avoid a t
 
 We create an Initialization service that has the ThemesService injected and has a method that returns a promise. 
 
-
-```ts 
+```ts
 @Injectable({
   providedIn: 'root'
 })
@@ -237,7 +234,6 @@ export const initThemes = (themes: ThemesInitService) => {
 
 In our module declaration, we include a new provider that provides `APP_INITIALIZER` and uses the factory function above with `useFactory`. Don't forget to set `multi` to `true`. Include the `ThemesService` in the  `deps` array so it will get injected in the factory function and we're good to go!
 
-
 ```ts
  {
   // @NgModule declaration
@@ -256,7 +252,7 @@ In our module declaration, we include a new provider that provides `APP_INITIALI
 
 # References
 
-- [My example code - Github repo](https://github.com/baskeboler/angular-themes-blog-post)
-- [Mozilla devs - Using CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
-- [css-tricks - post about the differences between css and preprocessor variables](https://css-tricks.com/difference-between-types-of-css-variables/)
-- [tinycolor - color manipulation library](https://github.com/bgrins/TinyColor)
+* [My example code - Github repo](https://github.com/baskeboler/angular-themes-blog-post)
+* [Mozilla devs - Using CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+* [css-tricks - post about the differences between css and preprocessor variables](https://css-tricks.com/difference-between-types-of-css-variables/)
+* [tinycolor - color manipulation library](https://github.com/bgrins/TinyColor)
