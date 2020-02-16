@@ -1,14 +1,16 @@
 ---
-title: White Labeling angular applications with CSS Custom Properties
+title: Building a Theming System with angular and CSS custom properties
 date: 2020-02-09T16:21:41.302Z
-cover: /assets/2.jpg
+cover: /assets/angular-bg.jpeg
 slug: white-labeling-angular-with-css-variables
-category: web development
+category: 'web development, angular, css'
 tags:
   - angular
   - css custom properties
-  - theming
+  - themes
   - white labeling
+  - css variables
+  - css preprocessors
 ---
 * [Introduction](#introduction)
 * [Difference between css and sass variables](#difference-between-css-and-sass-variables)
