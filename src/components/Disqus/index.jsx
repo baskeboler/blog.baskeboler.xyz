@@ -50,10 +50,10 @@ class Disqus extends Component {
         <CardText expandable={!expanded}>
           <ReactDisqusComments
             shortname={config.disqusShortname}
-            identifier={post.title}
+            identifier={postNode.id}
             title={post.title}
             url={url}
-            category_id={post.category_id}
+            category_id={post.category}
             onNewComment={this.notifyAboutComment}
           />
         </CardText>
