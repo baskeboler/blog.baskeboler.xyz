@@ -15,7 +15,7 @@ const config = {
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
   userName: "Victor Gil", // Username to display in the author segment.
-  userEmail: "yo@baskeboler.xyz", // Email used for RSS feed's author segment
+  userEmail: "baskeboler@gmail.com", // Email used for RSS feed's author segment
   userTwitter: "baskeboler", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "Montevideo, Uruguay", // User location to display in the author segment.
   userAvatar: "/assets/myAvatar.png", // User avatar to display in the author segment.
@@ -39,7 +39,7 @@ const config = {
       iconClassName: "fa fa-envelope"
     }
   ],
-  copyright: "Copyright © 2020. Victor Gil" // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2021. Victor Gil" // Copyright string for the footer of the website and RSS feed.
 };
 
 // Validate
