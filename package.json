@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-material",
-  "description": "GatsbyJS Material Blog theme.",
+  "name": "basket-blog",
+  "description": "blog based on GatsbyJS Material Blog theme.",
   "version": "2.0.0",
-  "author": "Ruben Harutyunyan <vagr9k@gmail.com>",
+  "author": "Victor Gil <baskeboler@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
