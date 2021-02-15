@@ -2,4 +2,4 @@ User-agent: *
 Disallow: */tags/
 Disallow: */categories/
 
-sitemap: https://blog.baskeboler.xyz/sitemap.xml
+sitemap: https://basket-blog.netlify.app/sitemap.xml
