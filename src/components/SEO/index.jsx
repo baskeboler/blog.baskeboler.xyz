@@ -89,7 +89,7 @@ class SEO extends Component {
         />
 
         {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta
           name="twitter:creator"
           content={config.userTwitter ? config.userTwitter : ""}

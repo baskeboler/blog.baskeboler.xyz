@@ -66,7 +66,7 @@ export default class PostTemplate extends React.Component {
             <title>{`${post.title} | ${config.siteTitle}`}</title>
             <link rel="canonical" href={`${config.siteUrl}${post.id}`} />
           </Helmet>
-          <SEO postPath={slug} postNode={postNode} postSEO />
+          <SEO postPath={slug} postNode={postNode} postSEO={true} />
           <PostCover
             postNode={postNode}
             coverHeight={coverHeight}
