@@ -1,7 +1,7 @@
 ---
 title: Sending clojure data from the REPL to the clipboard
 date: 2021-01-31T20:50:37.435Z
-cover: /assets/clojureavatar.png
+cover: https://i0.wp.com/frontnet.eu/wp-content/uploads/2018/12/Clojure_logo.png?fit=700%2C393&ssl=1
 slug: /pretty-print-clojure-data-to-clipboard
 category: clojure
 tags:
@@ -9,6 +9,7 @@ tags:
   - repl
   - clipboard
   - pprint
+  - programming
 ---
 I wrote these utility functions so I could easily pprint clojure data structs into the clipboard.
 
