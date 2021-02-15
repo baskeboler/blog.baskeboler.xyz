@@ -52,7 +52,6 @@ class Disqus extends Component {
             shortname={config.disqusShortname}
             identifier={postNode.id}
             id={postNode.id}
-            title={post.title}
             url={`${config.siteUrl}${postNode.fields.slug}`}
             onNewComment={this.notifyAboutComment}
           />
