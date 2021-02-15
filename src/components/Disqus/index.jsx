@@ -51,9 +51,9 @@ class Disqus extends Component {
           <ReactDisqusComments
             shortname={config.disqusShortname}
             identifier={postNode.id}
+            id={postNode.id}
             title={post.title}
-            url={url}
-            category_id={post.category}
+            url={`${config.siteUrl}${postNode.fields.slug}`}
             onNewComment={this.notifyAboutComment}
           />
         </CardText>
