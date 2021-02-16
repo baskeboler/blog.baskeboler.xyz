@@ -9,7 +9,7 @@ const config = {
   siteDescription: "My dev blog.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights
-  siteGATrackingID: "UA-47311644-4", // Tracking code ID for google analytics.
+  siteGATrackingID: "UA-79370302-1", // Tracking code ID for google analytics.
   disqusShortname: "baskets-dev-blog", // Disqus shortname.
   postDefaultCategoryID: "Tech", // Default category for posts.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
