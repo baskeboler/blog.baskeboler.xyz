@@ -41,7 +41,7 @@
     "moment": "^2.29.1",
     "netlify-cms-app": "^2.14.21",
     "node-sass": "^4.14.1",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.27.0",
     "react": "^16.14.0",
     "react-anime": "^2.3.2",
     "react-disqus-comments": "^1.4.0",
