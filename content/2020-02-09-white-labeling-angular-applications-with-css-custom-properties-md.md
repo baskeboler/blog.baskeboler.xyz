@@ -259,7 +259,7 @@ In our module declaration, we include a new provider that provides `APP_INITIALI
 # References
 
 * [My example code - Github repo](https://github.com/baskeboler/angular-themes-blog-post)
-  - [My demo site](https://angular-themes-demo.uyuyuy.xyz)
+  - [My demo site](https://angular-themes-demo.netlify.app/)
 * [Mozilla devs - Using CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 * [css-tricks - post about the differences between css and preprocessor variables](https://css-tricks.com/difference-between-types-of-css-variables/)
 * [tinycolor - color manipulation library](https://github.com/bgrins/TinyColor)
