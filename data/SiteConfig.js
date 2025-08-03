@@ -3,7 +3,7 @@ const config = {
   siteTitleShort: "Dev blog", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Web Development", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
-  siteUrl: "https://basket-blog.netlify.app", // Domain of your website without pathPrefix.
+  siteUrl: "https://blog.baskeboler.online", // Domain of your website without pathPrefix.
   pathPrefix: "", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   fixedFooter: false, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "My dev blog.", // Website description used for RSS feeds/meta description tag.
@@ -39,7 +39,7 @@ const config = {
       iconClassName: "fa fa-envelope"
     }
   ],
-  copyright: "Copyright © 2021. Victor Gil" // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2025. Victor Gil" // Copyright string for the footer of the website and RSS feed.
 };
 
 // Validate
